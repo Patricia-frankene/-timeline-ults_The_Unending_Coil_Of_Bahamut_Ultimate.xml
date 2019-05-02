@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<timeline>
+  <name>絶バハムート討滅戦</name>
+  <rev>3.0</rev>
+  <description>
+    絶バハムート討滅戦向けの実用可能なタイムラインです。
+    notice, notice-o などは自分の好みに合せて使用してください。
+
+    designed by Hojoring Forum
+    https://discord.gg/n6Mut3F
+  </description>
+  <!-- revisions
+  rev.20190426 ver3.0
+  sync-to-hideの実装
+  interval時間の調整
+　活性判定にリセットタイミングを設定。
+  rev.20190422 ver2.6
+  細かい箇所の不具合の調整
+  ※Test案件
+  2体フェーズの活性の対象の指定【動作確認】
+  群龍の時計・反時計判定。【未動作】
+  ＿＿＿＿＿＿＿＿
+  rev.20190416 (rev2.5)
+  hide-syncなど細かい箇所の実装【動作確認】
+  ※Test的に2体フェーズの活性の実装。
+   ・p-syncの再判定を0にした。
+   ・セリフのトリガー搭載
+   ・p-syncの搭載
+   rev1
+   ・フェーズ移行のsyncの変更
+   ・各フェーズ内に収納※金バハのみ頭に
+   ・
+  -->
+ <!-- caution
+  このファイルに記載された内容、および付随するデータを利用することによって起こるあらゆる事象について、Hojoring 作者、及びデータの作者は一切の責任を負いません。
+  あなたのPCにダウンロードした時点であなたの責任によって管理されたあなたの設定ファイルとなります。
+  例えば、通知内容の変更やトリガの不調などは原則的にあなた自身でメンテナンスを行う必要があります。
+ -->
+   <author>
+  Patirica Frankene
+  </author>
+  <license>CC BY-SA</license>
+  <zone>The Unending Coil Of Bahamut (Ultimate)</zone>
+  <locale>JA</locale>
+  <entry>ツインタニア</entry>
+  <start>(戦闘開始！|gains the effect of フェニックスの加護 from)</start>
+  <default target-element="Activity" target-attr="notice-d" value="Both" />
+  <default target-element="Activity" target-attr="notice-o" value="-3" />
+  <default target-element="Activity" target-attr="sync-s" value="-10" />
+  <default target-element="Activity" target-attr="sync-e" value="10" />
+
+
+
+  <!-- 各Phase loadタグ -->    
+
+
+    <t sync="382b:フェニックスの「転生の炎」" sync-count="1">
+      <load target="金バハ" truncate="true" />
+    </t>
+
+<!-- 強攻撃タグ -->
+<t text="デスセンテンス\n ➜ ${_pc}" sync="starts using デスセンテンス on [pc]" notice="デスセンテンス">
+  <v-notice
+    job-icon="true"
+    duration="4"
+    duration-visible="false" />
+</t>
+<t text="レイヴェンズビーク\n ➜ ${_pc}" sync="starts using レイヴェンズビーク on [pc]" notice="ビーク">
+  <v-notice
+    job-icon="true"
+    duration="4"
+    duration-visible="false" />
+</t>
+<!-- 強攻撃タグ終わり -->
+
+
+
+  <s name="ツインタニア">
+    <a time="0" text="戦闘開始"                 sync="" notice="" icon="" />
+    <a time="8" text="プラメット"               sync="" notice="" icon="" />
+    <a time="10" text="ツイスター"              sync="は「ツイスター」" notice="" icon="散開A.png" />
+    <a time="10" text="ファイアボール"          sync="" notice="" icon="頭割り.png" />
+    <a time="19" text="デスセンテンス"          sync="ツインタニアは「デスセンテンス」の構え。" notice="" icon="スイッチ.png" />
+    <a time="28" text="プラメット"              sync="" notice="" icon="" />
+    <a time="30" text="ツイスター"              sync="" notice="" icon="散開A.png" />
+    <a time="30" text="ファイアボール"          notice="" icon="頭割り.png" />
+    <a time="49" text="プラメット"              sync="" notice="" icon="" />
+    <a time="52" text="ツイスター"              sync="" notice="" icon="散開A.png" />
+    <a time="52" text="ファイアボール"          sync="" notice="" icon="頭割り.png" />
+    <a time="62" text="デスセンテンス"          sync="" notice="" icon="スイッチ.png" />
+    <a time="100" text="高速具落下"             sync="ツインタニア HP at 75%." notice="" notice-o="-0" icon="" />
+    <a time="108" text="ヘルリキッド(誘導)"     sync="の「ヘルリキッド」" sync-s="-50" notice="" icon="" />
+    <a time="114" text="魔力錬成"               sync="ツインタニアは「魔力錬成」の構え。" sync-s="-20" notice="" icon="" />
+    <a time="121" text="ヘルリキッド(誘導)"     sync="" notice="" icon="" />
+    <a time="128" text="デスセンテンス"         sync="ツインタニアは「デスセンテンス」の構え。" sync-s="-20" notice="" icon="スイッチ.png" />
+    <a time="136" text="魔力錬成"               notice="" icon="" />
+    <a time="140" text="ツイスター"             sync="" notice="" icon="散開A.png" />
+    <a time="150" text="プラメット"             sync="" icon="" />
+    <a time="155" text="ヘルリキッド(誘導)"     sync="" notice="" icon="" />
+    <a time="161" text="魔力錬成" sync=""       notice="" icon="" />
+    <a time="168" text="ヘルリキッド(誘導)"     notice="" icon="" />
+    <a time="175" text="デスセンテンス"         sync="ツインタニアは「デスセンテンス」の構え。" sync-s="-20" notice="" icon="スイッチ.png" />
+    <a time="200" text="高速具落下"             sync-s="" notice="" notice-o="-0" icon="" />
+    <a time="208" text="ヘルリキッド(誘導)"     sync="ツインタニアの「ヘルリキッド」" sync-s="-50" notice="" icon="" />
+    <a time="213" text="魔力錬成x2"             sync="ツインタニアは「魔力錬成」の構え。" sync-s="-20" notice="" icon="" />
+    <a time="220" text="ヘルリキッド"           sync="" notice="" icon="" />
+    <a time="200" text="ファイアボール"         sync="" notice="" icon="頭割り.png" />
+    <a time="232" text="デスセンテンス"         sync="ツインタニアは「デスセンテンス」の構え。" sync-s="-20" notice="" icon="スイッチ.png" />
+    <a time="241" text="プラメット"             sync="" notice="" icon="" />
+    <a time="244" text="魔力錬成x2"             sync="" notice="" icon="" />
+    <a time="248" text="ツイスター"             sync="" notice="" icon="散開A.png" />
+    <a time="256" text="プラメット"             sync="" notice="" icon="" />
+    <a time="258" text="ヘルリキッド(誘導)"     sync="" notice="" icon="" />
+    <a time="264" text="魔力錬成x2"             sync="" notice="" icon="" />
+    <a time="270" text="ヘルリキッド(ランダム)" sync="" notice="" icon="" />
+    <a time="270" text="ファイアボール"         sync="" notice="" icon="頭割り.png" />
+    <a time="282" text="デスセンテンス"         sync="ツインタニアは「デスセンテンス」の構え。" sync-s="-20" notice="" icon="スイッチ.png" />
+    <a time="290" text="プラメット"             sync="" notice="" icon="" />
+    <a time="291" text="時間切れ"               sync="" notice="時間切れが近い" icon="時間切れ.png" />
+    <t text="フェーズ移行待ち" sync="ラグナロク:26B8:天地崩壊:" sync-count="1">
+      <load target="ネール" truncate="true" />
+    </t>
+  </s>
+
+
+
+
+  <s name="ネール">
+  <!-- セール台詞タグ -->
+  <t text="ダイナモ→チャリオ" sync="月よ！ 鉄の覇道を照らせ！" notice="ダイナモ→チャリオ">
+    <v-notice
+      icon="離れる.png"
+      duration-visible="false"
+      duration="6"
+      order="9" />
+ </t>
+<t text="ダイナモ→頭割" sync="月よ！ 赤熱し、神敵を焼け！" notice="ダイナモ→あたまわり">
+    <v-notice
+      icon="頭割り.png"
+      duration-visible="false"
+      duration="6"
+      order="9" />
+  </t>
+
+<t text="頭割り→チャリオ" sync="赤熱し、焼かれし道を 鉄の覇道と成す！" notice="あたまわり→チャリオ">
+    <v-notice
+      icon="離れる.png"
+      duration-visible="false"
+      duration="6"
+      order="9" />
+  </t>
+  
+  <t text="頭割り→ダイナモ" sync="赤熱せし 月の祝福を！" notice="あたまわり→ダイナモ">
+    <v-notice
+      icon="外周範囲攻撃.png"
+      duration-visible="false"
+      duration="6"
+      order="9" />
+  </t>
+  <t text="ダイブ→ダイナモ" sync="我、舞い降りて 月を仰がん！" notice="ダイブ→ダイナモ">
+    <v-notice
+      icon="外周範囲攻撃.png"
+      duration-visible="false"
+      duration="6"
+      order="9" />
+  </t>
+  <t text="ダイブ→チャリオ" sync="我、舞い降りて 鉄の覇道を征く！" notice="ダイナモ→チャリオ">
+    <v-notice
+      icon="離れる.png"
+      duration-visible="false"
+      duration="6"
+      order="9" />
+  </t>
+  <t text="ノヴァ ダラカブ 頭割" sync="超新星よ、輝きを増せ！ 紅月下の赤熱せし地を照らせ！" notice="ノヴァ ダラカブ 頭割">
+    <v-notice
+      icon="頭割り.png"
+      duration-visible="false"
+      duration="11"
+      order="9" />
+  </t>
+  <t text="ノヴァ 散開 ダラカブ" sync="超新星よ、輝きを増せ！ 星降りの夜に、紅月を称えよ！" notice="ノヴァ 散開 ダラカブ">
+    <v-notice
+      icon="散開A.png"
+      duration-visible="false"
+      duration="11"
+      order="9" />
+  </t>
+<!-- セールフェーズタグ終わり -->
+<!-- カータタグ　必要でなければ削除 -->
+<t text="12時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.50" Y="21.02" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="1"
+  icon="arrow1.png"  />
+</t>
+<t text="1-2時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.83" Y="21.17" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="2"
+  icon="arrow2.png"  />
+</t>
+<t text="3時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.98" Y="21.50" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="3"
+  icon="arrow3.png"  />
+</t>
+<t text="4-5時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.83" Y="21.83" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="4"
+  icon="arrow4.png"  />
+</t>
+<t text="6時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.50" Y="21.98" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="5"
+  icon="arrow5.png"  />
+</t>
+<t text="7-8時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.17" Y="21.83" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="6"
+  icon="arrow6.png"  />
+</t>
+<t text="9時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.02" Y="21.50" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+  duration="120"
+  duration-visible="false"
+  sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+  order="7"
+  icon="arrow7.png"  />
+</t>
+<t text="10-11時">
+<p-sync interval="240"><combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)"  X="21.17" Y="21.17" Z="0.00" tolerance="0.01" /></p-sync>
+<v-notice
+   duration="120"
+   duration-visible="false"
+   sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク"
+   order="8"
+   icon="arrow8.png"  />
+     </t>
+<!-- カータタグ終わり　必要でなければ削除ここまで -->
+    <a time="0"  text="メテオストリーム"        sync="" notice="散会" icon="" />
+    <a time="2"  text="メテオストリーム"        sync="" notice="MTに鼓舞、深謀" icon="" />
+    <a time="4"  text="ダラガブダイブ"          sync="" notice="" icon="" />
+    <a time="6"  text="バハムートクロウ5連"     sync="" notice="" icon="単体強攻撃.png" />
+    <a time="12" text="龍神の加護"              sync="ネール・デウス・ダーナスは「龍神の加護」の構え。" notice="マーカーせっち" icon="" />
+    <a time="24" text="セリフ"                  sync="月よ！" sync-s="-20" notice="" icon="セリフ.png" />
+    <a time="24" text="サンダーウィング"        sync="" notice="サンダー確認" icon="サンダー系.png" />
+    <a time="29" text="ファイアボール"          sync="" notice="集まるファイア" icon="ファイア系.png" />
+    <a time="29" text="ルナダイナモ"            sync="" notice="" icon="" />
+    <a time="32" text="チャリオor頭割り"        sync="" notice="" icon="" />
+    <a time="33" text="死の宣告"                sync="" notice="宣告くるよ" icon="" />
+    <a time="41" text="バハムートクロウ5連"     sync="" notice="5連クロウ" icon="単体強攻撃.png" />
+    <a time="45" text="ファイアボール"          sync="" notice="離れるファイア" icon="ファイア系.png" />
+    <a time="49" text="サンダーウィング"        sync="" notice="サンダー確認" icon="サンダー系.png" />
+    <a time="52" text="セリフ"                  sync="(鉄の覇道と成す！|月の祝福を！)" sync-s="-20" notice="" icon="セリフ.png" />
+    <a time="57" text="サーミオニックビーム"    sync="" notice="" icon="" />
+    <a time="60" text="離れるorダイナモ"        sync="" notice="" icon="" />
+    <a time="62" text="死の宣告"                sync="" notice="" icon="" />
+    <a time="68" text="サンダーウィング"        sync="" notice="サンダー確認" icon="サンダー系.png" />
+    <a time="71" text="ファイアボール"          sync="" notice="集まるファイア" icon="ファイア系.png" />
+    <a time="79" text="バハムートクロウ5連"     sync="" notice="5連クロウ" icon="単体強攻撃.png" />
+    <a time="84" text="セリフ"                  sync="(鉄の覇道を征く！|月を仰がん！)" sync-s="-20" notice="セリフ" icon="セリフ.png" />
+    <a time="90" text="レイヴンダイブ"          sync="" notice="" icon="" />
+    <a time="92" text="ファイアボール"          sync="" notice="集まるファイア" icon="ファイア系.png" />
+    <a time="93" text="離れるorダイナモ"        sync="" notice="" icon="" />
+    <a time="95" text="サンダーウィング"        sync="" notice="サンダー確認" icon="サンダー系.png" />
+    <a time="99" text="死の宣告"                sync="" notice="宣告くるよ" icon="" />
+    <a time="114" text="レイヴェンズビーク"     sync="ネール・デウス・ダーナス starts using レイヴェンズビーク" notice="タンクスイッチ" icon="スイッチ.png" />
+    <a time="123" text="セリフ"                 sync="(鉄の覇道を征く！|月を仰がん！)" sync-s="-20" notice="" icon="セリフ.png" />
+    <a time="123" text="カータライズ"           sync="" notice="カータライズ" notice-o="-3" icon="" />
+    <a time="124" text="１"                     sync="" notice="1回目" notice-o="-0" icon="" />
+    <a time="128" text="２"                     sync="" notice="2回目" notice-o="-0" icon="" />
+    <a time="132" text="３"                     sync="" notice="3回目" notice-o="-0" icon="" />
+    <a time="138" text="散会"                   sync="" notice="" icon="" />
+    <a time="140" text="頭割りor散会"           sync="" notice="" icon="" />
+    <a time="145" text="バハムートクロウ5連"    sync="" notice="5連クロウ" icon="単体強攻撃.png" />
+    <a time="157" text="セリフ"                 sync="" notice="" icon="セリフ.png" />
+    <a time="168" text="セリフ"                 sync="" notice="" icon="セリフ.png" />
+    <a time="181" text="レイヴェンズビーク"     sync="「レイヴェンズビーク」の構え。" notice="タンクスイッチ" icon="スイッチ.png" />
+    <a time="188" text="バハムートクロウ5連"    sync="" notice="5連クロウ" icon="単体強攻撃.png" />
+    <a time="197" text="メガフレア"             sync="" notice="時間切れが近い" icon="時間切れ.png" />
+    <t text="フェーズ移行待ち" sync="バハムート・プライム:26D1:第七霊災:" sync-count="1">
+      <load target="プライム" truncate="true" />
+    </t>
+
+
+  </s>
+
+
+
+
+  <s name="プライム">
+<!-- 厄災ネールセリフタグ -->
+<t text="ダイナモ→ダイブ" sync="我、月より舞い降りて 星降りの夜を招かん！" notice="ダイナモ、ダイブ">
+  <v-notice
+    icon="外周範囲攻撃.png"
+    duration-visible="false"
+    sync-to-hide="バハムート・プライム starts using ギガフレア"
+    duration="20"
+    order="10" />
+</t>
+<t text="ダイブ→ダイナモ" sync="我、舞い降りて月を仰ぎ 星降りの夜を招かん！" notice="ダイブ、ダイナモ">
+  <v-notice
+    icon="散開A.png"
+    duration-visible="false"
+    sync-to-hide="バハムート・プライム starts using ギガフレア"
+    duration="20"
+    order="10" />
+</t>
+
+<!-- 厄災ネールセリフタグ終わり -->
+
+<!-- 各フェーズ注意点！ カンペ必要でなければ削除-->
+<t text="鼓舞展開+フェイコブ" sync="バハムート・プライムは「進軍の三重奏」の構え。" notice="MTに深謀+パクト">
+  <v-notice
+    icon="薬.png"
+    duration-visible="false"
+    duration="10"
+    order="1" />
+</t>
+<t text="囁き+慈愛士気" sync="バハムート・プライムは「黒炎の三重奏」の構え。" notice="囁き+士気、頭割り後迅速士気、不屈">
+  <v-notice
+    icon="薬.png"
+    duration-visible="false"
+    duration="10"
+    order="1" />
+</t>
+<t text="イルミ+士気" sync="バハムート・プライムは「厄災の三重奏」の構え。" notice="イルミと士気">
+  <v-notice
+    icon="薬.png"
+    duration-visible="false"
+    duration="10"
+    order="1" />
+</t>
+<t text="鼓舞展開" sync="バハムート・プライムは「天地の三重奏」の構え。" notice="鼓舞展開、そのあと、中央で陣とフェイコブ">
+  <v-notice
+    icon="薬.png"
+    duration-visible="false"
+    duration="10"
+    order="1" />
+</t>
+<!-- 各フェーズ注意点！終わり カンペ必要でなければ削除ここまで-->
+<!--  群龍反時計or時計判定タグ確定パターンのみ記載。 -->
+<t text="反時計→左" notice="">
+  <p-sync interval="240">
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.50" Y="21.02" Z="0.00" tolerance="0.01" />
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.98" Y="21.50" Z="0.00" tolerance="0.01" />
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.50" Y="21.98" Z="0.00" tolerance="0.01" />
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.02" Y="21.50" Z="0.00" tolerance="0.01" />
+  </p-sync>
+  <v-notice duration="10" duration-visible="false" icon="十字範囲攻撃.png" />
+</t>
+<t text="時計→右" notice="">
+  <p-sync interval="240">
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.83" Y="21.17" Z="0.00" tolerance="0.01" />
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.83" Y="21.83" Z="0.00" tolerance="0.01" />
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.17" Y="21.83" Z="0.00" tolerance="0.01" />
+    <combatant name="(ダークテイル|ライトファング|サンダーウィング|アイスクロウ|ファイアホーン)" X="21.17" Y="21.17" Z="0.00" tolerance="0.01" />
+  </p-sync>
+  <v-notice duration="10" duration-visible="false" icon="X範囲攻撃.png" />
+</t>
+
+<!--  群龍判定タグ終わり -->
+    <a  time="0" text="第七霊災"                sync="バハムート・プライム:26D1:第七霊災:" notice="第七れいさい。タンクエルビー" icon="" />
+    <a  time="3" text="災いの炎"                sync="" notice="" icon="" />
+    <a  time="8" text="災いの焔"                sync="「災いの焔」" notice="" icon="終わりにMT鼓舞" />
+    <a  time="17" text="フレアブレス"           sync="バハムート・プライムの「フレアブレス」" notice="" icon="" />
+    <a  time="21" text="フラッテン"             sync="「フラッテン」の構え。" sync-s="-20" notice="フラッテン" icon="" />
+    <a  time="29" text="進軍の三重奏"           sync="バハムート・プライムは「進軍の三重奏」の構え。" sync-s="-30" notice="しんぐうの三重奏。" icon="" />
+    <a  time="37" text="ダイブ"                 sync="" notice="" icon="" />
+    <a  time="46" text="メガフレア"             sync="" notice="" icon="" />
+    <a  time="48" text="アースシェイカー"       sync="" notice="" icon="" />
+    <a  time="48" text="テンペストウィング"     sync="" notice="" icon="" />
+    <a  time="58" text="フレアブレス"           sync="" notice="深謀、パクト" icon="" />
+    <a  time="61" text="フラッテン"             sync="「フラッテン」の構え。" sync-s="-20" notice="フラッテン" icon="" />
+    <a  time="70" text="黒炎の三重奏"           sync="バハムート・プライムは「黒炎の三重奏」の構え。" sync-s="70" notice="こくえんの三重奏。" icon="" />
+    <a  time="79" text="メガフレアダイブ"       sync="" notice="" icon="" />
+    <a  time="80" text="ヘルリキッド5連"        sync="" notice="" icon="" />
+    <a  time="83" text="頭割り"                 sync="" notice="" icon="" />
+    <a  time="85" text="塔x4"                   sync="" notice="" icon="" />
+    <a  time="86" text="メガフレア小円"         sync="" notice="" icon="" />
+    <a  time="89" text="ノヴァ4連"              sync="" notice="4連ノヴァ" icon="" />
+    <a  time="93" text="ギガフレア"             sync="" notice="" icon="" />
+    <a  time="108" text="フレアブレス"          sync="" notice="3連ブレス" icon="" />
+    <a  time="110" text="フレアブレス"          sync="" notice="" icon="" />
+    <a  time="112" text="フレアブレス"          sync="" notice="" icon="" />
+    <a  time="122" text="厄災の三重奏"          sync="バハムート・プライムは「厄災の三重奏」の構え。" sync-s="-100" notice="やくさいの三重奏。" icon="" />
+    <a  time="130" text="セリフ"                sync="" notice="拘束乗ったら士気" icon="セリフ.png" />
+    <a  time="135" text="テンペストウィング"    sync="" notice="" icon="" />
+    <a  time="143" text="エーテリック"          sync="" notice-o="-0" notice="バハに陣" icon="" />
+    <a  time="144" text="ギガフレア"            sync="バハムート・プライムは「ギガフレア」の構え。" notice="" icon="" />
+    <a  time="146" text="メテオストリーム"      sync="" notice="散会" icon="散開A.png" />
+    <a  time="155" text="フレアブレス"          sync="" notice="" icon="" />
+    <a  time="160" text="フラッテン"            sync="「フラッテン」の構え。" sync-s="-20" notice="フラッテン" icon="" />
+    <a  time="169" text="フレアブレス"          sync="" notice="鼓舞展開用意" icon="" />
+    <a  time="174" text="天地の三重奏"          sync="バハムート・プライムは「天地の三重奏」の構え。" sync-s="-150" notice="天地の三重奏。" icon="" />
+    <a  time="182" text="メガフレアダイブ"      sync="" notice="" icon="" />
+    <a  time="182" text="ツイスターダイブ"      sync="" notice="" icon="" />
+    <a  time="188" text="メガフレア塔x8"        sync="" notice="" icon="" />
+    <a  time="194" text="天地崩壊"              sync="" notice="" icon="" />
+    <a  time="202" text="ノヴァ3連"             sync="" notice="3連ノヴァ、中央に陣" icon="" />
+    <a  time="203" text="ファイアボール"        sync="" notice="中央で頭割りフェイコブ入れろ。" icon="" />
+    <a  time="207" text="ギガフレア"            sync="" notice="ギガフレア" icon="" />
+    <a  time="223" text="フレアブレス"          sync="" notice="3連ブレス" icon="" />
+    <a  time="225" text="フレアブレス"          sync="" notice="" icon="" />
+    <a  time="227" text="フレアブレス"          sync="" notice="しき、ささやき" icon="" />
+    <a  time="235" text="連撃の三重奏"          sync="バハムート・プライムは「進撃の三重奏」の構え。" sync-s="-200" notice="れんげきの三重奏。" icon="" />
+    <a  time="243" text="魔力錬成x3"            sync="" notice="魔力錬成" icon="" />
+    <a  time="247" text="魔力錬成x3"            sync="" notice="魔力錬成" icon="" />
+    <a  time="248" text="メテオストリーム"      sync="" notice="" icon="散開A.png" />
+    <a  time="255" text="アースシェイカー"      sync="" notice="シェイカー2セット" icon="" />
+    <a  time="260" text="アースシェイカー"      sync="" notice="" icon="" />
+    <a  time="267" text="ギガフレア"            sync="" notice="ギガフレア" icon="" />
+    <a  time="280" text="フラッテン"            sync="「フラッテン」の構え。" sync-s="-20" notice="フラッテン" icon="" />
+    <a  time="288" text="フレアブレス"          sync="" notice="ブレス" icon="" />
+    <a  time="291" text="群竜の八重奏"          sync="バハムート・プライムは「群竜の八重奏」の構え" sync-s="-250" notice="群竜の八重奏" icon="" />
+    <a  time="305" text="黄マーカー"            sync="ネール・デウス・ダーナスは「ルナダイブ」の構え" notice="スタート" icon="" />
+    <a  time="305" text="緑マーカー"            sync="" notice="" icon="" />
+    <a  time="307" text="緑マーカー"            sync="" notice="" icon="" />
+    <a  time="309" text="緑マーカー"            sync="" notice="" icon="" />
+    <a  time="311" text="緑マーカー"            sync="" notice="" icon="" />
+    <a  time="313" text="緑マーカー"            sync="" notice="" icon="" />
+    <a  time="322" text="赤マーカー"            sync="" notice="" icon="" />
+    <a  time="328" text="塔x4"                  sync="" notice="" icon="" />
+    <a  time="330" text="メガフレア小円"        sync="" notice="" icon="" />
+    <a  time="331" text="緑マーカー"            sync="" notice="" icon="" />
+    <t text="セリフ" sync="その御力を得て、大いなる御業の成就のため刻をかせぎましょう">
+      <load target="2体フェーズ" truncate="true" />
+    </t>
+
+  </s>
+
+
+
+  <s name="2体フェーズ">
+      <!-- 2体ネールセリフタグ -->
+    <t text="ダイナモ→チャリオ→ダイブ" sync="我、月より鉄を備え 舞い降りん！" notice="ダイナモ、チャリオ、最後にダイブ">
+      <v-notice
+        icon="散開A.png"
+        duration-visible="false"
+        sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク|ネール・デウス・ダーナス starts using メガフレア"
+        duration="20"
+        order="10" />
+    </t>
+    <t text="ダイナモ→ダイブ→頭割" sync="我、月より舞い降りて 赤熱せし地を歩まん！" notice="ダイナモ、ダイブ、最後に頭割">
+      <expressions>
+       <set name="heal" value="true" ttl="15" />
+      </expressions>
+      <v-notice
+        icon="頭割り.png"
+        duration-visible="false"
+        sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク|ネール・デウス・ダーナス starts using メガフレア"
+        duration="20"
+        order="10" />
+    </t>
+    <t text="チャリオ→頭割→ダイブ" sync="鉄よ、赤熱せよ！ 舞い降りし我が刃となれ！" notice="チャリオ、頭割、最後にダイブ">
+      <v-notice
+        icon="散開A.png"
+        duration-visible="false"
+        sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク|ネール・デウス・ダーナス starts using メガフレア"
+        duration="20"
+        order="10" />
+    </t>
+    <t text="チャリオ→ダイブ→頭割" sync="鉄よ、舞い降りし 我の刃となり赤熱せよ！" notice="チャリオ、ダイブ、最後に頭割">
+      <expressions>
+       <set name="heal" value="true" ttl="15" />
+      </expressions>
+
+      <v-notice
+        icon="頭割り.png"
+        duration-visible="false"
+        sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク|ネール・デウス・ダーナス starts using メガフレア"
+        duration="20"
+        order="10" />
+    </t>
+    <t text="活性\n ➜ ${_pc}" sync="[id8]:ネール・デウス・ダーナス:26BE:レイヴンダイブ:[id8]:[pc]:" notice="${pc}">
+      <expressions>
+       <pre name="heal" value="true" />
+       <set name="heal" value="false" />
+      </expressions>
+      <v-notice
+        job-icon="true"
+        duration-visible="false"
+        sync-to-hide="ネール・デウス・ダーナス starts using レイヴェンズビーク|ネール・デウス・ダーナス starts using メガフレア"
+        duration="20"
+        order="10" />
+    </t>
+
+    <!-- 2体ネールセリフタグ終わり -->
+
+    <a  time="0" text="セリフ"                    sync="その御力を得て、大いなる御業の成就のため刻をかせぎましょう" sync-s="-350" notice="MTホルム" icon="セリフ.png" />
+    <a  time="13" text="プラメット＋クロウ"       sync="" notice="" icon="" />
+    <a  time="13" text="ホルム"     sync="" notice="" icon="" />
+    <a  time="17" text="ヘルリキッド5連"          sync="" notice="" icon="" />
+    <a  time="22" text="魔力錬成x3"               sync="" notice="魔力錬成" icon="" />
+    <a  time="27" text="ツイスター"               sync="" notice="ツイスター" icon="散開A.png" />
+    <a  time="32" text="セリフ確認"               sync="" notice="" icon="セリフ.png" />
+    <a  time="44" text="ツイスター"               sync="" notice="ツイスター" icon="散開A.png" />
+    <a  time="52" text="メガフレア"               sync="" notice="ネールに集合" icon="全体攻撃.png" />
+    <a  time="62" text="デスセンビーク"           sync="" notice="デスセンビーク" icon="スイッチ.png" />
+    <a  time="70" text="5連クロウ+プラメット"     sync="" notice="バフ受け" icon="" >
+    <expressions>
+       <set name="heal" value="false" /><!-- リセット用 -->
+    </expressions>
+    </a>
+    <a  time="70" text="（タンクスイッチ）"       sync="" notice="" icon="" />
+    <a  time="80" text="ヘルリキッド5連"          sync="" notice="" icon="" />
+    <a  time="85" text="魔力錬成x3"               sync="" notice="魔力錬成" icon="" />
+    <a  time="90" text="ツイスター"               sync="" notice="ツイスター" icon="散開A.png" />
+    <a  time="95" text="セリフ確認"               sync="" notice="" icon="セリフ.png" />
+    <a  time="107" text="ツイスター"              sync="" notice="ツイスター" icon="散開A.png" />
+    <a  time="117" text="デスセンビーク"          sync="" notice="デスセンビーク" icon="スイッチ.png" />
+    <a  time="117" text="　→センチ+牽制＋パリセ" sync="" notice="" icon="" />
+    <a  time="117" text="（タンクスイッチ）"      sync="" notice="MTに深謀" icon="" />
+    <a  time="130" text="メガフレア"              sync="" notice="全体ダメージ" icon="全体攻撃.png" />
+    <a  time="167" text="テラフレア"              sync="" notice="" icon="時間切れ.png" />
+ </s>
+
+
+
+  <s name="金バハ">
+
+<a time="0"   text="転生の炎"                              sync="382b:フェニックスの「転生の炎」" notice="" icon="" />
+<a time="18"  text="アファー(1)"                           sync="282b:バハムート・プライムは「モーン・アファー」の構え。" notice="アファー1回目 慈愛士気" icon="" />
+<a time="18"  text="★"            sync="" notice="" icon="" />
+<a time="26"  text="アクモン(1)"                           sync="" notice="ホルム" icon="" />
+<a time="39"  text="エクサフレア"                          sync="" notice="エクサフレア" icon="" />
+<a time="58"  text="アクモン(2)"                           sync="" notice="アクモーン、二人受け" icon="" />
+<a time="58"  text="★ヴェンジェ+ランパ"                   sync="" notice="コンバレ" icon="" />
+<a time="73"  text="アファー(2)"                           sync="282b:バハムート・プライムは「モーン・アファー」の構え。" notice="アファー2回目。鼓舞展開" icon="" />
+<a time="73"  text="★"                  sync="" notice="" icon="" />
+<a time="88"  text="エクサフレア"                          sync="" notice="エクサフレア" icon="" />
+<a time="107" text="アファー(3)"                           sync="282b:バハムート・プライムは「モーン・アファー」の構え。" notice="アファー3回目。慈愛士気" icon="" />
+<a time="107" text="★"                    sync="" notice="" icon="" />
+<a time="121" text="アクモン(3)"                           sync="" notice="インビン" icon="" />
+<a time="138" text="エクサフレア"                          sync="" notice="エクサフレア" icon="" />
+<a time="157" text="アファー(4)"                           sync="282b:バハムート・プライムは「モーン・アファー」の構え。" notice="アファー4回目。士気" icon="" />
+<a time="157" text="★"      sync="" notice="" icon="" />
+<a time="171" text="アクモン(4)"                           sync="" notice="アクモーン、リビングデッド" icon="" />
+<a time="171" text="フルバフ"                              sync="" notice="" icon="" />
+<a time="189" text="エクサフレア"                          sync="" notice="エクサフレア" icon="" />
+<a time="209" text="アファー(5)"                           sync="" notice="アファー5回目。リプと羽" icon="" />
+<a time="209" text="★"    sync="" notice="" icon="" />
+<a time="217" text="アファー(最終)"                        sync="" notice="時間切れが近い" icon="" />
+<a time="217" text="頑張れ！！"   sync="" notice="頑張れ" icon="フルバフ.png" />
+
+
+  </s>
+
+
+
+
+
+
+</timeline>
